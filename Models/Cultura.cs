@@ -16,6 +16,5 @@ public class Cultura
     public string? Descricao { get; set; }
 
     public bool Ativo { get; set; } = true;
-
-    public ICollection<Talhao> Talhoes { get; set; } = new List<Talhao>();
+    public List<Talhao> Talhoes { get; set; } = [];
 }
