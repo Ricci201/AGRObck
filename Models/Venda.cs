@@ -15,13 +15,9 @@ public class Venda
 
     public decimal? Desconto { get; set; }
 
-    public StatusVenda Status { get; set; } = StatusVenda.Pendente;
-
-    public string? Observacoes { get; set; }
-
     public int ClienteId { get; set; }
-    [ForeignKey(nameof(ClienteId))]
+
     public Cliente? Cliente { get; set; }
 
-    public ICollection<ItemVenda> Itens { get; set; } = new List<ItemVenda>();
+    public List<ItemVenda> Itens { get; set; } = [];
 }

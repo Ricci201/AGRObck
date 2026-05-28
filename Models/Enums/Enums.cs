@@ -54,6 +54,14 @@ public enum TipoInsumo
     Adjuvante = 5
 }
 
+public enum TipoEconomia
+{
+    Nenhuma = 0,
+    Baixa = 1,
+    Media = 2,
+    Alta = 3
+}
+
 public enum StatusVenda
 {
     Pendente = 0,

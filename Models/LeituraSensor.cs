@@ -12,11 +12,11 @@ public class LeituraSensor
 
     public decimal PressaoBar { get; set; }
 
-    public decimal FluxoLitrosMin { get; set; }
+    public decimal FluxoLitros { get; set; }
 
     public DateTime RegistradoEm { get; set; } = DateTime.UtcNow;
 
     public int SensorId { get; set; }
-    [ForeignKey(nameof(SensorId))]
+
     public Sensor? Sensor { get; set; }
 }

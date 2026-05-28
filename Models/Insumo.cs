@@ -12,16 +12,12 @@ public class Insumo
 
     public TipoInsumo Tipo { get; set; }
 
+    public TipoEconomia Economia { get; set; } 
+
     [MaxLength(20)]
     public string UnidadeMedida { get; set; } = "L\\u\\kg";
 
-    public decimal PrecoUnitario { get; set; }
-
-    [MaxLength(80)]
-    public string? Fabricante { get; set; }
-
-    [MaxLength(500)]
-    public string? Descricao { get; set; }
+    public decimal CustoTotal { get; set; }
 
     public bool Ativo { get; set; } = true;
 

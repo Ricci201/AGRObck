@@ -8,7 +8,7 @@ public class Pulverizadora
     public int Id { get; set; }
 
     [Required, MaxLength(100)]
-    public string Modelo { get; set; } = string.Empty; 
+    public string Modelo { get; set; } = string.Empty;
 
     [MaxLength(50)]
     public string? NumeroSerie { get; set; }
@@ -24,12 +24,11 @@ public class Pulverizadora
 
     public bool LimitarVelocidade { get; set; } = true;
 
-    public bool PararEmAlertaPraga { get; set; } = true;
-
     public int QuantidadeSensores { get; set; }
 
     public DateTime CriadoEm { get; set; } = DateTime.UtcNow;
 
-    public ICollection<Sensor> Sensores { get; set; } = new List<Sensor>();
-    public ICollection<Pulverizacao> Pulverizacoes { get; set; } = new List<Pulverizacao>();
+    public List<Sensor> Sensores { get; set; } = [];
+
+    public List<Pulverizacao> Pulverizacoes { get; set; } = [];
 }

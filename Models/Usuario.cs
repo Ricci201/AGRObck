@@ -15,21 +15,19 @@ public class Usuario
     public string Email { get; set; } = string.Empty;
 
     [Required]
-    public string SenhaHash { get; set; } = string.Empty;
+    public string Senha { get; set; } = string.Empty;
 
     [MaxLength(20)]
     public string? Telefone { get; set; }
-
-    public bool Ativo { get; set; } = true;
 
     public DateTime CriadoEm { get; set; } = DateTime.UtcNow;
     public DateTime? UltimoLogin { get; set; }
 
     public int? EmpresaId { get; set; }
-    [ForeignKey(nameof(EmpresaId))]
+
     public Empresa? Empresa { get; set; }
 
     public int PlanoId { get; set; }
-    [ForeignKey(nameof(PlanoId))]
+
     public Plano? Plano { get; set; }
 }

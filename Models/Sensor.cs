@@ -9,10 +9,10 @@ public class Sensor
     public int Id { get; set; }
 
     [Required, MaxLength(20)]
-    public string Codigo { get; set; } = string.Empty; 
+    public string Codigo { get; set; } = string.Empty;
 
     [Required, MaxLength(80)]
-    public string Descricao { get; set; } = string.Empty; 
+    public string Descricao { get; set; } = string.Empty;
 
     public BracoPulverizadora Braco { get; set; }
 
@@ -28,12 +28,12 @@ public class Sensor
     public DateTime CriadoEm { get; set; } = DateTime.UtcNow;
 
     public int PulverizadoraId { get; set; }
-    [ForeignKey(nameof(PulverizadoraId))]
+
     public Pulverizadora? Pulverizadora { get; set; }
 
     public int ModeloSensorId { get; set; }
-    [ForeignKey(nameof(ModeloSensorId))]
+
     public ModeloSensor? ModeloSensor { get; set; }
 
-    public ICollection<LeituraSensor> Leituras { get; set; } = new List<LeituraSensor>();
+    public List<LeituraSensor> Leituras { get; set; } = [];
 }

@@ -18,14 +18,6 @@ public class Cliente
     [MaxLength(20)]
     public string? Telefone { get; set; }
 
-    [MaxLength(100)]
-    public string? Cidade { get; set; }
-
-    [MaxLength(2)]
-    public string? Estado { get; set; }
-
-    public bool Ativo { get; set; } = true;
-
     public DateTime CriadoEm { get; set; } = DateTime.UtcNow;
 
     public ICollection<Venda> Vendas { get; set; } = new List<Venda>();

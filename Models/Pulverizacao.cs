@@ -24,10 +24,10 @@ public class Pulverizacao
     public decimal? UmidadeSoloPercentual { get; set; }
 
     public int TalhaoId { get; set; }
-    [ForeignKey(nameof(TalhaoId))]
+
     public Talhao? Talhao { get; set; }
 
     public int PulverizadoraId { get; set; }
-    [ForeignKey(nameof(PulverizadoraId))]
+
     public Pulverizadora? Pulverizadora { get; set; }
 }

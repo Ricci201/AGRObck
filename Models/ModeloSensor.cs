@@ -7,7 +7,7 @@ public class ModeloSensor
     public int Id { get; set; }
 
     [Required, MaxLength(100)]
-    public string Nome { get; set; } = string.Empty; 
+    public string Nome { get; set; } = string.Empty;
 
     [MaxLength(50)]
     public string? Codigo { get; set; }
@@ -24,6 +24,7 @@ public class ModeloSensor
 
     public DateTime CriadoEm { get; set; } = DateTime.UtcNow;
 
-    public ICollection<Sensor> Sensores { get; set; } = new List<Sensor>();
-    public ICollection<ItemVenda> ItensVenda { get; set; } = new List<ItemVenda>();
+    public List<Sensor> Sensores { get; set; } = [];
+
+    public List<ItemVenda> ItensVenda { get; set; } = [];
 }

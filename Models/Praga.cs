@@ -18,7 +18,7 @@ public class Praga
     [MaxLength(500)]
     public string? RecomendacaoTratamento { get; set; }
 
-    public DateTime CriadoEm { get; set; } = DateTime.UtcNow;
+    public DateTime CriadoEm { get; set; }
 
-    public ICollection<DeteccaoPraga> Deteccoes { get; set; } = new List<DeteccaoPraga>();
+    public List<DeteccaoPraga> Deteccoes { get; set; } = [];
 }

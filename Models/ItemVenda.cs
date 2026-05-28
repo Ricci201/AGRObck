@@ -13,10 +13,9 @@ public class ItemVenda
     public decimal Subtotal { get; set; }
 
     public int VendaId { get; set; }
-    [ForeignKey(nameof(VendaId))]
-    public Venda? Venda { get; set; }
 
+    public Venda? Venda { get; set; }
     public int ModeloSensorId { get; set; }
-    [ForeignKey(nameof(ModeloSensorId))]
+
     public ModeloSensor? ModeloSensor { get; set; }
 }
