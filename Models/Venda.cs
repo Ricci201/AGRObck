@@ -15,6 +15,10 @@ public class Venda
 
     public decimal? Desconto { get; set; }
 
+    public StatusVenda Status { get; set; } = StatusVenda.Pendente;
+
+    public string? Observacoes { get; set; }
+
     public int ClienteId { get; set; }
 
     public Cliente? Cliente { get; set; }

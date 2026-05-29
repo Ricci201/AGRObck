@@ -24,6 +24,8 @@ public class Pulverizadora
 
     public bool LimitarVelocidade { get; set; } = true;
 
+    public bool PararEmAlertaPraga { get; set; }
+
     public int QuantidadeSensores { get; set; }
 
     public DateTime CriadoEm { get; set; } = DateTime.UtcNow;

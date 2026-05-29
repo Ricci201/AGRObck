@@ -14,6 +14,8 @@ public class ConfiguracaoSistema
 
     public bool AlertasSensorAtivos { get; set; } = true;
 
+    public bool AutoCalibracao { get; set; } = true;
+
     [MaxLength(255)]
     public string UrlApi { get; set; } = "https://api.agrofuturo.local/v1";
 

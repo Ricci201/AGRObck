@@ -16,7 +16,10 @@ public class Fazenda
     [MaxLength(2)]
     public string? Estado { get; set; }
 
-    public decimal AreaTotal { get; set; }
+    [MaxLength(255)]
+    public string? Localizacao { get; set; }
+
+    public decimal AreaTotalHa { get; set; }
 
     public double? Latitude { get; set; }
     public double? Longitude { get; set; }

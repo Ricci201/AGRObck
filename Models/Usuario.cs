@@ -17,6 +17,9 @@ public class Usuario
     [Required]
     public string Senha { get; set; } = string.Empty;
 
+    [Required]
+    public string SenhaHash { get; set; } = string.Empty;
+
     [MaxLength(20)]
     public string? Telefone { get; set; }
 

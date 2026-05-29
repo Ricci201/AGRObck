@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace AgroFuturo.Api.Controllers;
 
 [ApiController, Route("api/[controller]")]
-public class PlanosController(AppDbContext db) : CrudControllerBase<Plano>(db)
+public class PlanosController(AppDbContext dbContext) : CrudControllerBase<Plano>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<Plano>> Create(PlanoDto dto)
@@ -38,7 +38,7 @@ public class PlanosController(AppDbContext db) : CrudControllerBase<Plano>(db)
 }
 
 [ApiController, Route("api/[controller]")]
-public class EmpresasController(AppDbContext db) : CrudControllerBase<Empresa>(db)
+public class EmpresasController(AppDbContext dbContext) : CrudControllerBase<Empresa>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<Empresa>> Create(EmpresaDto dto)
@@ -60,7 +60,7 @@ public class EmpresasController(AppDbContext db) : CrudControllerBase<Empresa>(d
 }
 
 [ApiController, Route("api/[controller]")]
-public class FazendasController(AppDbContext db) : CrudControllerBase<Fazenda>(db)
+public class FazendasController(AppDbContext dbContext) : CrudControllerBase<Fazenda>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<Fazenda>> Create(FazendaDto dto)
@@ -94,7 +94,7 @@ public class FazendasController(AppDbContext db) : CrudControllerBase<Fazenda>(d
 }
 
 [ApiController, Route("api/[controller]")]
-public class CulturasController(AppDbContext db) : CrudControllerBase<Cultura>(db)
+public class CulturasController(AppDbContext dbContext) : CrudControllerBase<Cultura>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<Cultura>> Create(CulturaDto dto)
@@ -116,7 +116,7 @@ public class CulturasController(AppDbContext db) : CrudControllerBase<Cultura>(d
 }
 
 [ApiController, Route("api/[controller]")]
-public class TalhoesController(AppDbContext db) : CrudControllerBase<Talhao>(db)
+public class TalhoesController(AppDbContext dbContext) : CrudControllerBase<Talhao>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<Talhao>> Create(TalhaoDto dto)
@@ -147,7 +147,7 @@ public class TalhoesController(AppDbContext db) : CrudControllerBase<Talhao>(db)
 }
 
 [ApiController, Route("api/[controller]")]
-public class PulverizadorasController(AppDbContext db) : CrudControllerBase<Pulverizadora>(db)
+public class PulverizadorasController(AppDbContext dbContext) : CrudControllerBase<Pulverizadora>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<Pulverizadora>> Create(PulverizadoraDto dto)
@@ -183,7 +183,7 @@ public class PulverizadorasController(AppDbContext db) : CrudControllerBase<Pulv
 }
 
 [ApiController, Route("api/[controller]")]
-public class ModelosSensorController(AppDbContext db) : CrudControllerBase<ModeloSensor>(db)
+public class ModelosSensorController(AppDbContext dbContext) : CrudControllerBase<ModeloSensor>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<ModeloSensor>> Create(ModeloSensorDto dto)
@@ -213,7 +213,7 @@ public class ModelosSensorController(AppDbContext db) : CrudControllerBase<Model
 }
 
 [ApiController, Route("api/[controller]")]
-public class SensoresController(AppDbContext db) : CrudControllerBase<Sensor>(db)
+public class SensoresController(AppDbContext dbContext) : CrudControllerBase<Sensor>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<Sensor>> Create(SensorDto dto)
@@ -247,8 +247,10 @@ public class SensoresController(AppDbContext db) : CrudControllerBase<Sensor>(db
 }
 
 [ApiController, Route("api/leituras-sensor")]
-public class LeiturasSensorController(AppDbContext db) : ControllerBase
+public class LeiturasSensorController(AppDbContext dbContext) : ControllerBase
 {
+    private readonly AppDbContext db = dbContext;
+
     [HttpGet]
     public async Task<ActionResult<IEnumerable<LeituraSensor>>> GetAll([FromQuery] int? sensorId)
     {
@@ -274,7 +276,7 @@ public class LeiturasSensorController(AppDbContext db) : ControllerBase
 }
 
 [ApiController, Route("api/[controller]")]
-public class PulverizacoesController(AppDbContext db) : CrudControllerBase<Pulverizacao>(db)
+public class PulverizacoesController(AppDbContext dbContext) : CrudControllerBase<Pulverizacao>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<Pulverizacao>> Create(PulverizacaoDto dto)
@@ -312,7 +314,7 @@ public class PulverizacoesController(AppDbContext db) : CrudControllerBase<Pulve
 }
 
 [ApiController, Route("api/[controller]")]
-public class PragasController(AppDbContext db) : CrudControllerBase<Praga>(db)
+public class PragasController(AppDbContext dbContext) : CrudControllerBase<Praga>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<Praga>> Create(PragaDto dto)
@@ -341,7 +343,7 @@ public class PragasController(AppDbContext db) : CrudControllerBase<Praga>(db)
 }
 
 [ApiController, Route("api/deteccoes-praga")]
-public class DeteccoesPragaController(AppDbContext db) : CrudControllerBase<DeteccaoPraga>(db)
+public class DeteccoesPragaController(AppDbContext dbContext) : CrudControllerBase<DeteccaoPraga>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<DeteccaoPraga>> Create(DeteccaoPragaDto dto)
@@ -361,7 +363,7 @@ public class DeteccoesPragaController(AppDbContext db) : CrudControllerBase<Dete
 }
 
 [ApiController, Route("api/[controller]")]
-public class InsumosController(AppDbContext db) : CrudControllerBase<Insumo>(db)
+public class InsumosController(AppDbContext dbContext) : CrudControllerBase<Insumo>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<Insumo>> Create(InsumoDto dto)
@@ -392,7 +394,7 @@ public class InsumosController(AppDbContext db) : CrudControllerBase<Insumo>(db)
 }
 
 [ApiController, Route("api/consumos-insumo")]
-public class ConsumosInsumoController(AppDbContext db) : CrudControllerBase<ConsumoInsumo>(db)
+public class ConsumosInsumoController(AppDbContext dbContext) : CrudControllerBase<ConsumoInsumo>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<ConsumoInsumo>> Create(ConsumoInsumoDto dto)
@@ -412,7 +414,7 @@ public class ConsumosInsumoController(AppDbContext db) : CrudControllerBase<Cons
 }
 
 [ApiController, Route("api/[controller]")]
-public class ClientesController(AppDbContext db) : CrudControllerBase<Cliente>(db)
+public class ClientesController(AppDbContext dbContext) : CrudControllerBase<Cliente>(dbContext)
 {
     [HttpPost]
     public async Task<ActionResult<Cliente>> Create(ClienteDto dto)
@@ -443,7 +445,7 @@ public class ClientesController(AppDbContext db) : CrudControllerBase<Cliente>(d
 }
 
 [ApiController, Route("api/[controller]")]
-public class VendasController(AppDbContext db) : CrudControllerBase<Venda>(db)
+public class VendasController(AppDbContext dbContext) : CrudControllerBase<Venda>(dbContext)
 {
     public override async Task<ActionResult<IEnumerable<Venda>>> GetAll()
         => Ok(await db.Vendas.Include(v => v.Cliente).Include(v => v.Itens).AsNoTracking().ToListAsync());
@@ -474,8 +476,10 @@ public class VendasController(AppDbContext db) : CrudControllerBase<Venda>(db)
 }
 
 [ApiController, Route("api/configuracoes")]
-public class ConfiguracoesController(AppDbContext db) : ControllerBase
+public class ConfiguracoesController(AppDbContext dbContext) : ControllerBase
 {
+    private readonly AppDbContext db = dbContext;
+
     [HttpGet("{usuarioId:int}")]
     public async Task<ActionResult<ConfiguracaoSistema>> Get(int usuarioId)
     {

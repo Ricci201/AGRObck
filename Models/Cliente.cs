@@ -7,7 +7,7 @@ public class Cliente
     public int Id { get; set; }
 
     [Required, MaxLength(150)]
-    public string Nome { get; set; } = string.Empty; 
+    public string Nome { get; set; } = string.Empty;
 
     [MaxLength(20)]
     public string? CnpjCpf { get; set; }
@@ -17,6 +17,12 @@ public class Cliente
 
     [MaxLength(20)]
     public string? Telefone { get; set; }
+
+    [MaxLength(100)]
+    public string? Cidade { get; set; }
+
+    [MaxLength(2)]
+    public string? Estado { get; set; }
 
     public DateTime CriadoEm { get; set; } = DateTime.UtcNow;
 

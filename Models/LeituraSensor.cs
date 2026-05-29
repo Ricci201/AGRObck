@@ -12,7 +12,7 @@ public class LeituraSensor
 
     public decimal PressaoBar { get; set; }
 
-    public decimal FluxoLitros { get; set; }
+    public decimal FluxoLitrosMin { get; set; }
 
     public DateTime RegistradoEm { get; set; } = DateTime.UtcNow;
 

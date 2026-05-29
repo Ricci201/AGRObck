@@ -10,10 +10,10 @@ namespace AgroFuturo.Api.Controllers;
 /// </summary>
 public abstract class CrudControllerBase<TEntity> : ControllerBase where TEntity : class
 {
-    protected readonly AppDbContext _db;
-    protected CrudControllerBase(AppDbContext db) => _db = db;
+    protected readonly AppDbContext db;
+    protected CrudControllerBase(AppDbContext db) => this.db = db;
 
-    protected DbSet<TEntity> Set => _db.Set<TEntity>();
+    protected DbSet<TEntity> Set => db.Set<TEntity>();
 
     [HttpGet]
     public virtual async Task<ActionResult<IEnumerable<TEntity>>> GetAll()
@@ -32,7 +32,7 @@ public abstract class CrudControllerBase<TEntity> : ControllerBase where TEntity
         var entity = await Set.FindAsync(id);
         if (entity is null) return NotFound();
         Set.Remove(entity);
-        await _db.SaveChangesAsync();
+        await db.SaveChangesAsync();
         return NoContent();
     }
 }
